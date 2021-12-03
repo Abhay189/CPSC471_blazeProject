@@ -16,7 +16,7 @@ function App() {
           <div class="sidenav .d-none">
             <h1>Catagories</h1>
             <Accordion>
-              <Accordion.Item eventKey="0">
+              <Accordion.Item eventKey="0"> 
                 <Accordion.Header>Clothing Type</Accordion.Header>
                 <Accordion.Body>
                  
