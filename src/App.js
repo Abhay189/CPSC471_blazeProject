@@ -1,10 +1,10 @@
-import './App.css';
+import './CSS/App.css';
 import './NavigBar'
-import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navigbar from './NavigBar';
 import { Col, Container, Row } from 'react-bootstrap';
 import Sidepanel from './Sidepanel';
+import RightColumn from './RightColumn';
 
 function App() {
   return (
@@ -15,8 +15,8 @@ function App() {
           <Col className="leftCol" lg = {4} sm= {12}>
             <Sidepanel/>
           </Col>
-          <Col className="rightCol">
-            <Button >Heyy</Button>
+            <Col className = "rightColumn">
+              <RightColumn/>
           </Col>
         </Row>
       </Container>

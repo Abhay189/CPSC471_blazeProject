@@ -1,5 +1,5 @@
 import { Accordion, Button } from "react-bootstrap";
-import './Sidepanel.css'
+import './CSS/Sidepanel.css'
 
 function Sidepanel(){
     return(
