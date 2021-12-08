@@ -4,7 +4,8 @@
     display:flex;
     align-items: center;
     justify-content: center;
-    background-color: grey;
+    background-image: linear-gradient(to bottom right,rgb(247, 242, 242),darkred);
+    /* background-color: grey; */
 }
 
 .LoginForm {
@@ -20,10 +21,12 @@
     right: -5px;
     bottom: -5px;
     z-index: 1;
+    border-radius: 10px;
     background-image: linear-gradient(to bottom right,#FFCE00, #FE4880);
 }
 
 .LoginForm .form-inner {
+    border-radius: 10px;
     position: relative;
     display: block;
     background-color: white;
