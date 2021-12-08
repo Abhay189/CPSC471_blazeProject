@@ -7,7 +7,7 @@ function RightColumn(){
         <div>
             
             <div className="heading">
-              <h1>Mens Tops</h1>
+              <h1 id= "men_tops">Mens Tops</h1>
             </div>
 
             <div className="cardHolder">
@@ -20,7 +20,7 @@ function RightColumn(){
             </div>
 
             <div className="heading">
-              <h1>Mens Lowers</h1>
+              <h1 id= "men_lower">Mens Lowers</h1>
             </div>
 
             <div className="cardHolder">
@@ -33,7 +33,7 @@ function RightColumn(){
             </div>
 
             <div className="heading">
-              <h1>Mens Casuals</h1>
+              <h1 id= "men_casual">Mens Casuals</h1>
             </div>
 
             <div className="cardHolder">
@@ -46,7 +46,7 @@ function RightColumn(){
             </div>
 
             <div className="heading">
-              <h1>Mens Formals</h1>
+              <h1 id= "men_formal">Mens Formals</h1>
             </div>
 
             <div className="cardHolder">
@@ -59,7 +59,7 @@ function RightColumn(){
             </div>
 
             <div className="heading">
-              <h1>Mens Undergarments</h1>
+              <h1 id= "men_undergarments">Mens Undergarments</h1>
             </div>
 
             <div className="cardHolder">
