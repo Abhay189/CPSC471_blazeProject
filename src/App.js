@@ -12,11 +12,12 @@ import AdminProducts from './AdminProducts';
 import AdminRUser from './AdminRegisteredUsers';
 import AdminDiscount from './AdminDiscount';
 import AdminSales from './SalesReport';
-
+import LetsLogin from './TheLogin';
 function App() {
   return (
     <div className="App">
-      <Navigbar/>
+      <LetsLogin/>
+      {/*<Navigbar/>
       <Container fluid className="mainContainer">
         <Row>
           <Col className="leftCol" lg = {4} sm= {12}>
@@ -28,7 +29,7 @@ function App() {
           <Col><AdminSales/></Col>
           
         </Row>
-      </Container>
+      </Container>*/}
     </div>
   );
 }
