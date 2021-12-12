@@ -5,21 +5,31 @@ import Navigbar from './NavigBar';
 import { Col, Container, Row } from 'react-bootstrap';
 import Sidepanel from './Sidepanel';
 import RightColumn from './RightColumn';
-
+import Adminsidepanel from './AdminSidepanel';
+import AdminForm  from './AdminSupplierForm';
+import Adminview from './AdminViewSuppliers'
+import AdminProducts from './AdminProducts';
+import AdminRUser from './AdminRegisteredUsers';
+import AdminDiscount from './AdminDiscount';
+import AdminSales from './SalesReport';
+import LetsLogin from './TheLogin';
 function App() {
   return (
     <div className="App">
-      <Navigbar/>
+      <LetsLogin/>
+      {/*<Navigbar/>
       <Container fluid className="mainContainer">
         <Row>
           <Col className="leftCol" lg = {4} sm= {12}>
-            <Sidepanel/>
+            <Adminsidepanel/>
           </Col>
             <Col className = "rightColumn">
               <RightColumn/>
           </Col>
+          <Col><AdminSales/></Col>
+          
         </Row>
-      </Container>
+      </Container>*/}
     </div>
   );
 }
