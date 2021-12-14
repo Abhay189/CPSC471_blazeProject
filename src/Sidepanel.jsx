@@ -10,11 +10,8 @@ function Sidepanel(){
             <Accordion.Header>Clothing Type</Accordion.Header>
             <Accordion.Body>
             <ul>
-            <li><input type="checkbox" id="top" name="topp" /><lable for= "top">Tops</lable></li>
-            <li><input type="checkbox" id="Lower" name="Lower"/><lable for= "top">Lower</lable></li>
-            <li><input type="checkbox" id="Casual" name="Casual"/><lable for= "top">Casual</lable></li>
-            <li><input type="checkbox" id="Formal" name="Formal"/><lable for= "top">Formal</lable></li>
-            <li><input type="checkbox" id="Under-Garments" name="Under-Garments"/><lable for= "top">Under-Garments</lable></li>
+            <li><input type="checkbox" id="top" name="topp" /><lable for= "top">Top</lable></li>
+            <li><input type="checkbox" id="Lower" name="Lower"/><lable for= "top">Bottom</lable></li>
             </ul>
             </Accordion.Body>
         </Accordion.Item>

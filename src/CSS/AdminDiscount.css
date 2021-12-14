@@ -26,3 +26,8 @@
     background: #3E3E3E;
             border-radius: 10px;
   }
+
+Table{
+  min-width: 50vw;
+    padding: 10px;
+}

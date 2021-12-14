@@ -9,7 +9,7 @@ function LetsLogin() {
   const adminUser = {
     email: "admin@admin.com",
     password: "admin123"
-}
+  }
   const [user,setUser] = useState({name: "", email: ""}); // get name and email to save for the user
   const [error, setError] = useState("");
 

@@ -5,13 +5,16 @@
     align-items: center;
     flex-wrap: wrap;
     padding: 10px;
+}
   
-  }
+.heading{
+  text-align: center;
+  color: aliceblue;
+  padding: 20px;
+  margin: 10px;
+}
   
-  .heading{
-    text-align: center;
-    color: aliceblue;
-    padding: 20px;
-    margin: 10px;
-  }
-  
+.adminSales{
+  align-self: center;
+  justify-self: center;
+}

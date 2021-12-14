@@ -17,6 +17,22 @@
   justify-items: center;
 }
 
+.admincol{
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.adminSales{
+  /* flex-grow: 1; */
+  min-width: 800px;
+}
+
+
+
+
 
 .App-header {
   background-color: #282c34;
