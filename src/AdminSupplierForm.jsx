@@ -1,7 +1,7 @@
 import {Button,Form } from "react-bootstrap";
 import './CSS/AdminSupplierForm.css';
 
-function AdminForm(){
+function AdminSupplierAddForm(){
     return(
       <div className="adminsupplierbackground">
         <Form>
@@ -36,4 +36,4 @@ function AdminForm(){
     )
 }
 
-export default AdminForm;
+export default AdminSupplierAddForm;

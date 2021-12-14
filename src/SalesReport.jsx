@@ -2,7 +2,7 @@ import {Table} from "react-bootstrap";
 import './CSS/AdminDiscount.css'
 
 
-function AdminSales(){
+function AdminSalesReport(){
     return(
         <div class = "AdminProductTable">
           <Table striped bordered hover size="sm"> 
@@ -33,4 +33,4 @@ function AdminSales(){
     )
 }
     
-export default AdminSales;
+export default AdminSalesReport;

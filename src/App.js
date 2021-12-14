@@ -7,12 +7,12 @@ import { Col, Container, Row } from 'react-bootstrap';
 import Sidepanel from './Sidepanel';
 import RightColumn from './RightColumn';
 import Adminsidepanel from './AdminSidepanel';
-import AdminForm  from './AdminSupplierForm';
-import Adminview from './AdminViewSuppliers'
-import AdminProducts from './AdminProducts';
-import AdminRUser from './AdminRegisteredUsers';
+import AdminSupplierAddForm  from './AdminSupplierForm';
+import AdminViewSupplier from './AdminViewSuppliers'
+import AdminProductsDeletion from './AdminProductsDeletion';
+import AdminRegisterUser from './AdminRegisteredUsers';
 import AdminDiscount from './AdminDiscount';
-import AdminSales from './SalesReport';
+import AdminSalesReport from './SalesReport';
 import LetsLogin from './TheLogin';
 
 class App extends React.Component {
@@ -33,18 +33,29 @@ class App extends React.Component {
       isloginclicked: false,
       AdminLogginButtonclicked: false,
       isAdmin: false,
-      search: ""
+      search: "",
+      AdminPannelComponent: <AdminSalesReport className = "adminSales"/>
     }
     //Binds the methods to this in the class. 
+    
     this.loginbuttonhandler = this.loginbuttonhandler.bind(this);
     this.AdminLoginButtonHandler = this.AdminLoginButtonHandler.bind(this);
+    this.viewInventoryButtonHandler = this.viewInventoryButtonHandler.bind(this);
+    this.addSupplierButtonHandler = this.addSupplierButtonHandler.bind(this);
+    this.viewSupplierButtonHandler = this.viewSupplierButtonHandler.bind(this);
+    this.registerUserButtonHandler = this.registerUserButtonHandler.bind(this);
+    this.discountButtonHandler = this.discountButtonHandler.bind(this);
+    this.SalesReportButtonHandler = this.SalesReportButtonHandler.bind(this);
+
+  
+  
+  
   }
 
   render(){
     if(!this.state.isloginclicked && !this.state.isAdmin){    //this shows the to a normal user who is not logged in 
       return(
         <div className="App">
-        {/* <LetsLogin/> */}
         <Navigbar loginbuttonhandler = {this.loginbuttonhandler} AdminLoginButtonHandler = {this.AdminLoginButtonHandler} />
         <Container fluid className="mainContainer">
           <Row>
@@ -54,7 +65,6 @@ class App extends React.Component {
               <Col className = "rightColumn">
                 <RightColumn/>
             </Col>
-            {/* <Col><AdminSales/></Col> */}
           </Row>
         </Container>
       </div>
@@ -71,16 +81,22 @@ class App extends React.Component {
       return(
         <div>
           <div className="App">
-            {/* <LetsLogin/> */}
-            <Navigbar loginbuttonhandler = {this.loginbuttonhandler} />
+            <Navigbar 
+              loginbuttonhandler = {this.loginbuttonhandler}/>
             <Container fluid className="mainContainer">
               <Row>
                 <Col className="leftCol" lg = {4} sm= {12}>
-                  <Adminsidepanel/>
+                  <Adminsidepanel 
+                    viewInventoryButtonHandler = {this.viewInventoryButtonHandler}
+                    addSupplierButtonHandler = {this.addSupplierButtonHandler}
+                    viewSupplierButtonHandler = {this.viewSupplierButtonHandler}
+                    registerUserButtonHandler = {this.registerUserButtonHandler}
+                    discountButtonHandler = {this.discountButtonHandler}
+                    SalesReportButtonHandler = {this.SalesReportButtonHandler}
+                  />
                 </Col>
                 <Col className = "admincol">
-                  <AdminSales className = "adminSales"/>
-                  <AdminForm  className = "adminSales"/>
+                  {this.state.AdminPannelComponent}
                 </Col>
               </Row>
             </Container>
@@ -90,6 +106,42 @@ class App extends React.Component {
     }
     
   }
+  viewInventoryButtonHandler(){
+    this.setState({
+    AdminPannelComponent: <AdminProductsDeletion/>
+    });
+  }
+  addSupplierButtonHandler(){
+    this.setState({
+      AdminPannelComponent: <AdminSupplierAddForm/>
+      });
+  }
+  viewSupplierButtonHandler(){
+    this.setState({
+      AdminPannelComponent: <AdminViewSupplier/>
+      });
+  }
+  registerUserButtonHandler(){
+    this.setState({
+      AdminPannelComponent: <AdminRegisterUser/>
+      });
+  }
+  discountButtonHandler(){
+    this.setState({
+      AdminPannelComponent: <AdminDiscount/>
+      });
+  }
+  SalesReportButtonHandler(){
+    this.setState({
+      AdminPannelComponent: <AdminSalesReport/>
+      });
+  }
+
+
+
+
+
+
 
   AdminLoginButtonHandler(){
     if(!this.state.isAdmin){
