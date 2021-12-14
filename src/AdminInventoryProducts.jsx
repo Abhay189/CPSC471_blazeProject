@@ -1,7 +1,7 @@
 import {Table} from "react-bootstrap";
 import './CSS/AdminTable.css'
 
-function AdminProductsDeletion(){
+function AdminInventoryProducts(){
   return(
     <div class = "AdminProductTable">
       <Table striped bordered hover size="sm"> 
@@ -38,4 +38,4 @@ function AdminProductsDeletion(){
     )
 }
 
-export default AdminProductsDeletion;
+export default AdminInventoryProducts;

@@ -29,7 +29,7 @@ class Adminsidepanel extends React.Component{
                 <Accordion.Header>System</Accordion.Header>
                 <Accordion.Body>
                 <ul>
-                <li><button onClick={this.props.registerUserButtonHandler} class ="AdminButton">Regiester Users</button> </li>
+                <li><button onClick={this.props.registeredUserButtonHandler} class ="AdminButton">Regiestered Users</button> </li>
                 <li><button onClick={this.props.discountButtonHandler} class ="AdminButton">Discount</button></li>
                 <li><button onClick={this.props.SalesReportButtonHandler} class ="AdminButton">Sales Report</button></li>
                 </ul>

@@ -7,7 +7,9 @@ class Navigbar extends React.Component {
         return(
             <Navbar bg="dark" className="navbar-dark" expand="lg">
             <Container fluid>
-                <Navbar.Brand href="#">Blaze Collection</Navbar.Brand>
+                <Navbar.Brand>
+                Blaze Collection
+                </Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                 <Nav
@@ -39,6 +41,7 @@ class Navigbar extends React.Component {
                     <Button variant="outline-success" className="buttonss">Search</Button>
                     <Button variant="outline-success" onClick={this.props.loginbuttonhandler} className="buttonss">login</Button>
                     <Button variant="outline-success" onClick={this.props.AdminLoginButtonHandler} className="buttonss">Admin Login</Button>
+                    <Button variant="outline-success" onClick={this.props.HomeScreenButtonHandler} className="buttonss">Home Page</Button>
                 </Form>
                 </Navbar.Collapse>
             </Container>

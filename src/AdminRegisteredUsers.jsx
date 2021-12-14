@@ -1,8 +1,7 @@
 import {Table } from "react-bootstrap";
 import './CSS/AdminTable.css'
 
-
-function AdminRegisterUser(){
+function AdminRegisteredUser(){
     return(
         <div class = "AdminProductTable">
         <Table striped bordered hover size="sm"> 
@@ -38,4 +37,4 @@ function AdminRegisterUser(){
         )
     }
     
-    export default AdminRegisterUser;
+    export default AdminRegisteredUser;
