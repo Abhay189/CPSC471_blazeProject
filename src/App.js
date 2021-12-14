@@ -40,10 +40,6 @@ class App extends React.Component {
     this.AdminLoginButtonHandler = this.AdminLoginButtonHandler.bind(this);
   }
 
-  /**
-   * 
-   * @returns returns the whole window on the screen.
-   */
   render(){
     if(!this.state.isloginclicked && !this.state.isAdmin){    //this shows the to a normal user who is not logged in 
       return(
