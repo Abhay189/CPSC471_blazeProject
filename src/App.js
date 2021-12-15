@@ -12,8 +12,9 @@ import AdminViewSupplier from './AdminViewSuppliers'
 import AdminInventoryProducts from './AdminInventoryProducts';
 import AdminRegisteredUser from './AdminRegisteredUsers';
 import AdminDiscount from './AdminDiscount';
-import AdminSalesReport from './SalesReport';
 import LetsLogin from './TheLogin';
+import AdminInventoryAddForm from './AdminInventoryAddForm';
+import AdminViewDiscount from './AdminViewDiscount';
 
 class App extends React.Component {
 
@@ -35,11 +36,12 @@ class App extends React.Component {
     this.HomeScreenButtonHandler = this.HomeScreenButtonHandler.bind(this);
 
     this.viewInventoryButtonHandler = this.viewInventoryButtonHandler.bind(this);
+    this.addInventoryButtonHandler = this.addInventoryButtonHandler.bind(this);
     this.addSupplierButtonHandler = this.addSupplierButtonHandler.bind(this);
     this.viewSupplierButtonHandler = this.viewSupplierButtonHandler.bind(this);
     this.registeredUserButtonHandler = this.registeredUserButtonHandler.bind(this);
     this.discountButtonHandler = this.discountButtonHandler.bind(this);
-    this.SalesReportButtonHandler = this.SalesReportButtonHandler.bind(this);
+    this.viewdiscountButtonHandler = this.viewdiscountButtonHandler.bind(this);
   }
 
   render(){
@@ -82,11 +84,12 @@ class App extends React.Component {
                 <Col className="leftCol" lg = {4} sm= {12}>
                   <Adminsidepanel 
                     viewInventoryButtonHandler = {this.viewInventoryButtonHandler}
+                    addInventoryButtonHandler = {this.addInventoryButtonHandler}
                     addSupplierButtonHandler = {this.addSupplierButtonHandler}
                     viewSupplierButtonHandler = {this.viewSupplierButtonHandler}
                     registeredUserButtonHandler = {this.registeredUserButtonHandler}
                     discountButtonHandler = {this.discountButtonHandler}
-                    SalesReportButtonHandler = {this.SalesReportButtonHandler}
+                    viewdiscountButtonHandler = {this.viewdiscountButtonHandler}
                   />
                 </Col>
                 <Col className = "admincol">
@@ -104,6 +107,11 @@ class App extends React.Component {
   viewInventoryButtonHandler(){
     this.setState({
     AdminPannelComponent: <AdminInventoryProducts/>
+    });
+  }
+  addInventoryButtonHandler(){
+    this.setState({
+    AdminPannelComponent: <AdminInventoryAddForm/>
     });
   }
   addSupplierButtonHandler(){
@@ -126,9 +134,9 @@ class App extends React.Component {
       AdminPannelComponent: <AdminDiscount/>
       });
   }
-  SalesReportButtonHandler(){
+  viewdiscountButtonHandler(){
     this.setState({
-      AdminPannelComponent: <AdminSalesReport/>
+      AdminPannelComponent: <AdminViewDiscount/>
       });
   }
 

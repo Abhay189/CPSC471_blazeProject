@@ -19,15 +19,10 @@ function AdminDiscount(){
     </InputGroup>
   </Form.Group> 
 
-<Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-    <Form.Label>Condition</Form.Label>
-    <Form.Control as="textarea" rows={3} />
+  <Form.Group className="mb-3" controlId="formEXPDate">
+    <Form.Label>Promo Code</Form.Label>
+    <Form.Control type="text" placeholder="code1234" />
   </Form.Group>
-
-  <Form.Group className="mb-3" controlId="formValue">
-    <Form.Label>Use_time</Form.Label>
-    <Form.Control type="text" placeholder="idk what this is tbh" />
-  </Form.Group> 
 
   <button class = "customButton" variant="primary" type="submit">
     Submit

@@ -13,6 +13,7 @@ class Adminsidepanel extends React.Component{
                 <Accordion.Body>
                 <ul>
                 <li><button onClick={this.props.viewInventoryButtonHandler} class ="AdminButton">View Inventory</button></li>
+                <li><button onClick={this.props.addInventoryButtonHandler} class ="AdminButton">Add Inventory</button></li>
                 </ul>
                 </Accordion.Body>
             </Accordion.Item>
@@ -30,8 +31,8 @@ class Adminsidepanel extends React.Component{
                 <Accordion.Body>
                 <ul>
                 <li><button onClick={this.props.registeredUserButtonHandler} class ="AdminButton">Regiestered Users</button> </li>
-                <li><button onClick={this.props.discountButtonHandler} class ="AdminButton">Discount</button></li>
-                <li><button onClick={this.props.SalesReportButtonHandler} class ="AdminButton">Sales Report</button></li>
+                <li><button onClick={this.props.discountButtonHandler} class ="AdminButton">Add Discount</button></li>
+                <li><button onClick={this.props.viewdiscountButtonHandler} class ="AdminButton">View Discount</button></li>
                 </ul>
                 </Accordion.Body>
             </Accordion.Item>

@@ -9,7 +9,7 @@ function AdminInventoryProducts(){
           <tr>
             <th>Product id</th>
             <th>Product</th>
-            <th>Delete</th>
+            <th>Edit/Delete</th>
           </tr>
         </thead>
         <tbody>
@@ -20,7 +20,7 @@ function AdminInventoryProducts(){
               <tr>Price:</tr>
               <tr>Supplier:</tr>
             </td>
-            <td><button>Delete</button></td>
+            <td><button>Edit</button>    <button>Delete</button></td>
           </tr>
           <tr>
             <td>2</td>
@@ -29,9 +29,8 @@ function AdminInventoryProducts(){
               <tr>Price:</tr>
               <tr>Supplier:</tr>
             </td>
-            <td><button>Delete</button></td>
+            <td><button>Edit</button>    <button>Delete</button></td>
           </tr>
-
         </tbody>
       </Table>
       </div>
