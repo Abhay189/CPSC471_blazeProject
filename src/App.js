@@ -1,11 +1,8 @@
 import './CSS/App.css';
 import './NavigBar'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import React from 'react';
+import React, { useState } from "react";
 import Navigbar from './NavigBar';
-import { Col, Container, Row } from 'react-bootstrap';
-import Sidepanel from './Sidepanel';
-import RightColumn from './RightColumn';
 import Adminsidepanel from './AdminSidepanel';
 import AdminSupplierAddForm  from './AdminSupplierForm';
 import AdminViewSupplier from './AdminViewSuppliers'
@@ -15,6 +12,10 @@ import AdminDiscount from './AdminDiscount';
 import LetsLogin from './TheLogin';
 import AdminInventoryAddForm from './AdminInventoryAddForm';
 import AdminViewDiscount from './AdminViewDiscount';
+import Cart from './Cart';
+import AppMain from './AppMain'
+import { Col, Container, Row } from 'react-bootstrap';
+
 
 class App extends React.Component {
 
@@ -26,6 +27,7 @@ class App extends React.Component {
       homeScreenButton: true,
       isloginclicked: false,
       AdminLogginButtonclicked: false,
+      cartButtonNavBarClicked: false,
       isAdmin: false,
       search: "",
       AdminPannelComponent: <AdminInventoryProducts className = "adminSales"/>
@@ -34,6 +36,7 @@ class App extends React.Component {
     this.loginbuttonhandler = this.loginbuttonhandler.bind(this);
     this.AdminLoginButtonHandler = this.AdminLoginButtonHandler.bind(this);
     this.HomeScreenButtonHandler = this.HomeScreenButtonHandler.bind(this);
+    this.cartButtonHandler = this.cartButtonHandler.bind(this);
 
     this.viewInventoryButtonHandler = this.viewInventoryButtonHandler.bind(this);
     this.addInventoryButtonHandler = this.addInventoryButtonHandler.bind(this);
@@ -46,23 +49,18 @@ class App extends React.Component {
 
   render(){
     if(this.state.homeScreenButton){    //this shows the to a normal user who is not logged in 
+      
       return(
         <div className="App">
         <Navigbar 
           loginbuttonhandler = {this.loginbuttonhandler} 
           AdminLoginButtonHandler = {this.AdminLoginButtonHandler} 
           HomeScreenButtonHandler = {this.HomeScreenButtonHandler}
+          cartButtonHandler = {this.cartButtonHandler}
         />
-        <Container fluid className="mainContainer">
-          <Row>
-            <Col className="leftCol" lg = {4} sm= {12}>
-              <Sidepanel/>
-            </Col>
-              <Col className = "rightColumn">
-                <RightColumn/>
-            </Col>
-          </Row>
-        </Container>
+              <AppMain/>
+
+
       </div>
       )
     }
@@ -101,6 +99,21 @@ class App extends React.Component {
         </div>
       )
     }
+    if (this.state.cartButtonNavBarClicked){
+      return(
+      <div className="App">
+        <div>In cart</div>
+        <Navigbar 
+          loginbuttonhandler = {this.loginbuttonhandler} 
+          AdminLoginButtonHandler = {this.AdminLoginButtonHandler} 
+          HomeScreenButtonHandler = {this.HomeScreenButtonHandler}
+          cartButtonHandler = {this.cartButtonHandler}
+        />
+        <Cart/>
+      </div>
+      )
+    }
+    
     
   }
 //----------------------------------------------------------------------------------------------------------------------------------------
@@ -161,7 +174,16 @@ class App extends React.Component {
       });
     }
   }
+  cartButtonHandler(){
+    if(!this.state.isloginclicked){
+      this.setState({
+        homeScreenButton: false,
+        cartButtonNavBarClicked:true,
+      });
+    }
+  }
 //----------------------------------------------------------------------------------------------------------------------------------------
 }
 
 export default App;
+

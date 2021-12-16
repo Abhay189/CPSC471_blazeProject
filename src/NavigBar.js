@@ -42,6 +42,8 @@ class Navigbar extends React.Component {
                     <Button variant="outline-success" onClick={this.props.loginbuttonhandler} className="buttonss">login</Button>
                     <Button variant="outline-success" onClick={this.props.AdminLoginButtonHandler} className="buttonss">Admin Login</Button>
                     <Button variant="outline-success" onClick={this.props.HomeScreenButtonHandler} className="buttonss">Home Page</Button>
+                    <Button variant="outline-success" onClick={this.props.cartButtonHandler} className="buttonss">Cart</Button>
+
                 </Form>
                 </Navbar.Collapse>
             </Container>

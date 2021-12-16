@@ -10,13 +10,20 @@
 }
 
 .leftCol{
-  padding: 10px;
+  background-color: pink;
   display: flex;
   justify-content: center;
   align-items: center;
   justify-items: center;
 }
-
+.rightColumn {
+  background-color: orange;
+  padding: 10px;
+  padding: auto;
+}
+.rightMostColumn {
+  background-color: green;
+}
 .admincol{
   padding: 10px;
   display: flex;
