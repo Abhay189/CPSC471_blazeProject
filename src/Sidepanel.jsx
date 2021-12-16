@@ -52,41 +52,56 @@ class Sidepanel extends React.Component {
       ColorWhite: document.getElementById("White").checked,
       ColorYellow: document.getElementById("Yellow").checked,
     });
+  }
+
+  componentDidMount() {
+    this.myfun();
+  }
+
+  filterBtn() {
+    // IDK why this.props.API_URL return undefined
+    // ********
+    let API_URL = "44392";
 
     let apiCalls = new Array();
     for (let [key, value] of Object.entries(this.state)) {
       if (key.includes("Cat") && value)
         apiCalls.push(
-          `https://localhost:${this.props.API_URL}/api/productcat/${key.replace(
+          `https://localhost:${API_URL}/api/productcat/${key.replace(
             "Cat",
             ""
           )}`
         );
       else if (key.includes("Size") && value)
         apiCalls.push(
-          `https://localhost:${
-            this.props.API_URL
-          }/api/productsize/${key.replace("Size", "")}`
+          `https://localhost:${API_URL}/api/productsize/${key.replace(
+            "Size",
+            ""
+          )}`
         );
       else if (key.includes("Price") && value)
         apiCalls.push(
-          `https://localhost:${
-            this.props.API_URL
-          }/api/productprice/${key.replace("Price", "")}`
+          `https://localhost:${API_URL}/api/productprice/${key.replace(
+            "Price",
+            ""
+          )}`
         );
       else if (key.includes("Color") && value)
         apiCalls.push(
-          `https://localhost:${
-            this.props.API_URL
-          }/api/productcolor/${key.replace("Color", "")}`
+          `https://localhost:${API_URL}/api/productcolor/${key.replace(
+            "Color",
+            ""
+          )}`
         );
     }
-
     console.log(apiCalls);
-  }
 
-  componentDidMount() {
-    this.myfun();
+    let newArr = new Array();
+    apiCalls.forEach((url) => {
+      fetch(url)
+        .then((response) => response.json())
+        .then((data) => newArr.push(data));
+    });
   }
 
   render() {
@@ -205,7 +220,7 @@ class Sidepanel extends React.Component {
             </Accordion.Body>
           </Accordion.Item>
         </Accordion>
-        <Button onClick={this.myfun}>Filter</Button>
+        <Button onClick={this.filterBtn.bind(this)}>Filter</Button>
       </div>
     );
   }
