@@ -15,6 +15,8 @@ import AdminDiscount from './AdminDiscount';
 import AdminSalesReport from './SalesReport';
 import LetsLogin from './TheLogin';
 
+let API_URL = "44317";
+
 class App extends React.Component {
 
   constructor(props){
@@ -26,7 +28,7 @@ class App extends React.Component {
       AdminLogginButtonclicked: false,
       isAdmin: false,
       search: "",
-      AdminPannelComponent: <AdminInventoryProducts className = "adminSales"/>
+      AdminPannelComponent: <AdminInventoryProducts API_URL={API_URL} className = "adminSales"/>
     }
 
     this.loginbuttonhandler = this.loginbuttonhandler.bind(this);
@@ -56,7 +58,7 @@ class App extends React.Component {
               <Sidepanel/>
             </Col>
               <Col className = "rightColumn">
-                <RightColumn/>
+                <RightColumn API_URL={API_URL}/>
             </Col>
           </Row>
         </Container>
@@ -102,32 +104,32 @@ class App extends React.Component {
 //----------------------------------------------------------------------------------------------------------------------------------------
   viewInventoryButtonHandler(){
     this.setState({
-    AdminPannelComponent: <AdminInventoryProducts/>
+    AdminPannelComponent: <AdminInventoryProducts API_URL = {API_URL} />
     });
   }
   addSupplierButtonHandler(){
     this.setState({
-      AdminPannelComponent: <AdminSupplierAddForm/>
+      AdminPannelComponent: <AdminSupplierAddForm API_URL={API_URL} />
       });
   }
   viewSupplierButtonHandler(){
     this.setState({
-      AdminPannelComponent: <AdminViewSupplier/>
+      AdminPannelComponent: <AdminViewSupplier API_URL={API_URL} />
       });
   }
   registeredUserButtonHandler(){
     this.setState({
-      AdminPannelComponent: <AdminRegisteredUser/>
+      AdminPannelComponent: <AdminRegisteredUser API_URL={API_URL} />
       });
   }
   discountButtonHandler(){
     this.setState({
-      AdminPannelComponent: <AdminDiscount/>
+      AdminPannelComponent: <AdminDiscount API_URL={API_URL} />
       });
   }
   SalesReportButtonHandler(){
     this.setState({
-      AdminPannelComponent: <AdminSalesReport/>
+      AdminPannelComponent: <AdminSalesReport API_URL={API_URL} />
       });
   }
 

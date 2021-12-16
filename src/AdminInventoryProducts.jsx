@@ -10,14 +10,17 @@ class AdminInventoryProducts extends React.Component{
       error: null
     }
   }
+
   buildList = (data) => {
     this.setState({
       productArray: data
     })
+    console.log(this.state.productArray)
   }
 
   componentDidMount() {
-    let url = "https://localhost:44317/api/products"; 
+    // let url = "https://localhost:44317/api/products"; 
+    let url = "https://localhost:" + this.props.API_URL + "/api/products"; 
     fetch(url)
     .then(response => response.json())
     .then(this.buildList)
@@ -30,7 +33,7 @@ class AdminInventoryProducts extends React.Component{
       for(let i = 0; i<this.state.productArray.length; i++){
         products.push(
           <tr>
-                <td>{i +1 }</td>
+                <td>{this.state.productArray[i].PID}</td>
                 <td className= "align">
                   <tr>Name:{this.state.productArray[i].Name}</tr>
                   <tr>Descr:{this.state.productArray[i].Descr}</tr>
@@ -44,13 +47,13 @@ class AdminInventoryProducts extends React.Component{
         );
         
       }
-      // console.log(this.state.productArray);
+
       return(
         <div class = "AdminProductTable">
           <Table striped bordered hover size="sm"> 
             <thead>
               <tr>
-                <th>S.no.</th>
+                <th>Product ID</th>
                 <th>Product</th>
                 <th>Delete</th>
               </tr>

@@ -1,44 +1,74 @@
+import React from "react";
 import {Table} from "react-bootstrap";
 import './CSS/AdminTable.css'
 
 
-function AdminViewSupplier(){
-    return(
+class AdminViewSupplier extends React.Component{
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      supplierArray: [],
+      error: null
+    }
+  }
+  
+  buildList = (data) => {
+    this.setState({
+      supplierArray: data
+    })
+  }
+
+  componentDidMount() {
+    let url = "https://localhost:" + this.props.API_URL + "/api/suppliers"; 
+    fetch(url)
+    .then(response => response.json())
+    .then(this.buildList)
+    .catch()
+  }
+
+  render(){
+    let suppliers = []
+    if(this.state.supplierArray.length > 0){
+      for(let i = 0; i<this.state.supplierArray.length; i++){
+        suppliers.push(
+          <tr>
+            <td>{this.state.supplierArray[i].SupID}</td>
+            <td class = "align">
+              <tr>Name:{this.state.supplierArray[i].Name}</tr>
+              <tr>Email:{this.state.supplierArray[i].Email}</tr>
+              <tr>Address:{this.state.supplierArray[i].Street} {this.state.supplierArray[i].City} {this.state.supplierArray[i].PostalCode}</tr>
+              <tr>Phone Number:{this.state.supplierArray[i].PhoneNo}</tr>
+            </td>
+            <td><button>Delete</button></td>
+          </tr>
+        )
+      }
+      return(
         <div class = "AdminProductTable">
-        <Table striped bordered hover size="sm"> 
-          <thead>
-            <tr>
-              <th>Supplier id</th>
-              <th>Supplier</th>
-              <th>Delete</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td class = "align">
-                <tr>Name:dsdasa</tr>
-                <tr>Email:</tr>
-                <tr>Address:</tr>
-                <tr>Phone Number:</tr>
-              </td>
-              <td><button>Delete</button></td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td class = "align">
-                <tr>Name:sdasffffffffffffffffffffffffffff</tr>
-                <tr>Email:</tr>
-                <tr>Address:</tr>
-                <tr>Phone Number:</tr>
-              </td>
-              <td><button>Delete</button></td>
-            </tr>
-        
-          </tbody>
-        </Table>
-        </div>
-)
+            <Table striped bordered hover size="sm"> 
+              <thead>
+                <tr>
+                  <th>Supplier ID</th>
+                  <th>Supplier</th>
+                  <th>Delete</th>
+                </tr>
+              </thead>
+              <tbody>
+                {suppliers}
+              </tbody>
+            </Table>
+          </div>
+      );
+    }
+    else{
+      return(
+          <div class = "AdminProductTable">
+            <h1>Loading...</h1>
+          </div>
+      );
+    }
+  }
 }
 
 export default AdminViewSupplier;

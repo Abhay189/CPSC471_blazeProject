@@ -20,7 +20,7 @@ class RightColumn extends React.Component {
   }
 
   componentDidMount() {
-    let url = "https://localhost:44317/api/products"; 
+    let url = "https://localhost:" + this.props.API_URL + "/api/products"; 
     fetch(url)
     .then(response => response.json())
     .then(this.buildList)
