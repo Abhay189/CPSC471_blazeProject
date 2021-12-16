@@ -1,5 +1,5 @@
 import React from "react";
-import { Accordion, Button } from "react-bootstrap";
+import { Accordion } from "react-bootstrap";
 import './CSS/AdminSidepanel.css'
 
 class Adminsidepanel extends React.Component{
@@ -12,7 +12,7 @@ class Adminsidepanel extends React.Component{
                 <Accordion.Header>Inventory</Accordion.Header>
                 <Accordion.Body>
                 <ul>
-                <li><button onClick={this.props.viewInventoryButtonHandler} class ="AdminButton">View Inventory</button></li>
+                <li><button onClick={this.props.viewInventoryButtonHandler} className ="AdminButton">View Inventory</button></li>
                 </ul>
                 </Accordion.Body>
             </Accordion.Item>
@@ -20,8 +20,8 @@ class Adminsidepanel extends React.Component{
                 <Accordion.Header>Supplier</Accordion.Header>
                 <Accordion.Body>
                 <ul>
-                <li><button onClick={this.props.addSupplierButtonHandler} class ="AdminButton">Add</button></li>
-                <li><button onClick={this.props.viewSupplierButtonHandler} class ="AdminButton">View</button></li>
+                <li><button onClick={this.props.addSupplierButtonHandler} className ="AdminButton">Add</button></li>
+                <li><button onClick={this.props.viewSupplierButtonHandler} className ="AdminButton">View</button></li>
                 </ul>
                 </Accordion.Body>
             </Accordion.Item>
@@ -29,9 +29,9 @@ class Adminsidepanel extends React.Component{
                 <Accordion.Header>System</Accordion.Header>
                 <Accordion.Body>
                 <ul>
-                <li><button onClick={this.props.registeredUserButtonHandler} class ="AdminButton">Regiestered Users</button> </li>
-                <li><button onClick={this.props.discountButtonHandler} class ="AdminButton">Discount</button></li>
-                <li><button onClick={this.props.SalesReportButtonHandler} class ="AdminButton">Sales Report</button></li>
+                <li><button onClick={this.props.registeredUserButtonHandler} className ="AdminButton">Regiestered Users</button> </li>
+                <li><button onClick={this.props.discountButtonHandler} className ="AdminButton">Discount</button></li>
+                <li><button onClick={this.props.SalesReportButtonHandler} className ="AdminButton">Sales Report</button></li>
                 </ul>
                 </Accordion.Body>
             </Accordion.Item>
