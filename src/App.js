@@ -167,6 +167,7 @@ class App extends React.Component {
       AdminLogginButtonclicked: false,
       isAdmin: false,
       search: "",
+      screennumber: 1,
       AdminPannelComponent: <AdminInventoryProducts API_URL={API_URL} className = "adminSales"/>
     }
 
@@ -183,7 +184,7 @@ class App extends React.Component {
   }
 
   render(){
-    if(this.state.homeScreenButton){    //this shows the to a normal user who is not logged in 
+    if(this.state.screennumber == 1){    //this shows the to a normal user who is not logged in 
       return(
         <div className="App">
         <Navigbar 
@@ -204,19 +205,22 @@ class App extends React.Component {
       </div>
       )
     }
-    if(this.state.isloginclicked){    //this shows the login page after the user clicks the login button
+    if(this.state.screennumber == 2){    //this shows the login page after the user clicks the login button
       return(
         <div>
            <LetsLogin/>
         </div>
       )
     }
-    if(this.state.isAdmin){
+    if(this.state.screennumber == 3){
       return(
         <div>
           <div className="App">
-            <Navigbar 
-              loginbuttonhandler = {this.loginbuttonhandler}/>
+          <Navigbar 
+          loginbuttonhandler = {this.loginbuttonhandler} 
+          AdminLoginButtonHandler = {this.AdminLoginButtonHandler} 
+          HomeScreenButtonHandler = {this.HomeScreenButtonHandler}
+        />
             <Container fluid className="mainContainer">
               <Row>
                 <Col className="leftCol" lg = {4} sm= {12}>
@@ -275,24 +279,21 @@ class App extends React.Component {
 //---------------------------------------------------------------------------------------------------------------------------------------- 
   HomeScreenButtonHandler(){
       this.setState({
-        isAdmin: false,
-        homeScreenButton:true
+        screennumber: 1
       });
   }
 
   AdminLoginButtonHandler(){
       this.setState({
-        homeScreenButton: false,
-        isAdmin: true
+        screennumber: 3
       });
   }
   loginbuttonhandler(){
-    if(!this.state.isloginclicked){
       this.setState({
-        isloginclicked: true,
+        screennumber: 2
       });
     }
-  }
+  
 //----------------------------------------------------------------------------------------------------------------------------------------
 }
 
