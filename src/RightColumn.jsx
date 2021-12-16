@@ -93,27 +93,16 @@ class RightColumn extends React.Component {
     let cards = []
     if(this.state.productArray.length > 0){
       for(let i = 0; i<this.state.productArray.length; i++){
-        cards.push(<ClothesCard className="card" source={image} productPrice={this.state.productArray[i].Price} productname={this.state.productArray[i].Name} description={this.state.productArray[i].Descr}/>);
-        console.log(this.state.productArray);
+        cards.push(<ClothesCard key={i} className="card" source={image} productPrice={this.state.productArray[i].Price} productname={this.state.productArray[i].Name} description={this.state.productArray[i].Descr}/>);
+        // console.log(this.state.productArray);
       }
       return(
         <div>
           <div className="heading">
-            <h1 id="men_tops">Mens Tops</h1>
+            <h1 id="men_tops">Products</h1>
           </div>
           <div className="cardHolder">
             {cards}
-          </div>
-          <div className="heading">
-            <h1 id="men_lower">Mens Bottom</h1>
-          </div>
-          <div className="cardHolder">
-            <ClothesCard className="card" source={image} />
-            <ClothesCard className="card" source={image} />
-            <ClothesCard className="card" source={image} />
-            <ClothesCard className="card" source={image} />
-            <ClothesCard className="card" source={image} />
-            <ClothesCard className="card" source={image} />
           </div>
         </div>
       )

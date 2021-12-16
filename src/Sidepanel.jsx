@@ -1,60 +1,64 @@
+import React from "react";
 import { Accordion, Button } from "react-bootstrap";
 import './CSS/Sidepanel.css'
 
-function Sidepanel(){
-    return(
-        <div class="sidenav">
-        <h1>Catagories</h1>
-        <Accordion defaultActiveKey="0">
-        <Accordion.Item eventKey="0"> 
-            <Accordion.Header>Clothing Type</Accordion.Header>
-            <Accordion.Body>
-            <ul>
-            <li><input type="checkbox" id="top" name="topp" /><lable for= "top">Top</lable></li>
-            <li><input type="checkbox" id="Lower" name="Lower"/><lable for= "top">Bottom</lable></li>
-            </ul>
-            </Accordion.Body>
-        </Accordion.Item>
-        <Accordion.Item eventKey="1">
-            <Accordion.Header>Size</Accordion.Header>
-            <Accordion.Body>
-            <ul>
-            <li><input type="checkbox"/><lable for= "top">XL</lable></li>
-            <li><input type="checkbox"/><lable for= "top">Large</lable></li>
-            <li><input type="checkbox"/><lable for= "top">Medium</lable></li>
-            <li><input type="checkbox"/><lable for= "top">Small</lable></li>
-            </ul>
-            </Accordion.Body>
-        </Accordion.Item>
-        <Accordion.Item eventKey="2">
-            <Accordion.Header>Price</Accordion.Header>
-            <Accordion.Body>
-            <ul>
-            <li><input type="checkbox"/><lable for= "top">$20-$100</lable></li>
-            <li><input type="checkbox"/><lable for= "top">$100-$250</lable></li>
-            <li><input type="checkbox"/><lable for= "top">$250-$500</lable></li>
-            <li><input type="checkbox"/><lable for= "top">$500+</lable></li>
-            </ul>
-            </Accordion.Body>
-        </Accordion.Item>
-        <Accordion.Item eventKey="3">
-            <Accordion.Header>Color</Accordion.Header>
-            <Accordion.Body>
-            <ul>
-            <li><input type="checkbox"/><lable for= "top">Black</lable></li>
-            <li><input type="checkbox"/><lable for= "top">Blue</lable></li>
-            <li><input type="checkbox"/><lable for= "top">Green</lable></li>
-            <li><input type="checkbox"/><lable for= "top">Orange</lable></li>
-            <li><input type="checkbox"/><lable for= "top">Pink</lable></li>
-            <li><input type="checkbox"/><lable for= "top">Red</lable></li>
-            <li><input type="checkbox"/><lable for= "top">White</lable></li>
-            <li><input type="checkbox"/><lable for= "top">Yellow</lable></li>
-            </ul>
-            </Accordion.Body>
-        </Accordion.Item>
-        </Accordion>
-        <Button>Filter</Button>
-    </div>
-    )
+class Sidepanel extends React.Component{
+    render(){
+        return(
+            <div className="sidenav">
+            <h1>Catagories</h1>
+            <Accordion defaultActiveKey="0">
+            <Accordion.Item eventKey="0"> 
+                <Accordion.Header>Clothing Type</Accordion.Header>
+                <Accordion.Body>
+                <ul>
+                <li><input type="checkbox" id="top" name="topp" />Top</li>
+                <li><input type="checkbox" id="Lower" name="Lower"/>Bottom</li>
+                </ul>
+                </Accordion.Body>
+            </Accordion.Item>
+            <Accordion.Item eventKey="1">
+                <Accordion.Header>Size</Accordion.Header>
+                <Accordion.Body>
+                <ul>
+                <li><input id="jiio" type="checkbox"/>XL</li>
+                
+                <li><input type="checkbox"/>Large</li>
+                <li><input type="checkbox"/>Medium</li>
+                <li><input type="checkbox"/>Small</li>
+                </ul>
+                </Accordion.Body>
+            </Accordion.Item>
+            <Accordion.Item eventKey="2">
+                <Accordion.Header>Price</Accordion.Header>
+                <Accordion.Body>
+                <ul>
+                <li><input type="checkbox"/>$20-$100</li>
+                <li><input type="checkbox"/>$100-$250</li>
+                <li><input type="checkbox"/>$250-$500</li>
+                <li><input type="checkbox"/>$500+</li>
+                </ul>
+                </Accordion.Body>
+            </Accordion.Item>
+            <Accordion.Item eventKey="3">
+                <Accordion.Header>Color</Accordion.Header>
+                <Accordion.Body>
+                <ul>
+                <li><input type="checkbox"/>Black</li>
+                <li><input type="checkbox"/>Blue</li>
+                <li><input type="checkbox"/>Green</li>
+                <li><input type="checkbox"/>Orange</li>
+                <li><input type="checkbox"/>Pink</li>
+                <li><input type="checkbox"/>Red</li>
+                <li><input type="checkbox"/>White</li>
+                <li><input type="checkbox"/>Yellow</li>
+                </ul>
+                </Accordion.Body>
+            </Accordion.Item>
+            </Accordion>
+            <Button>Filter</Button>
+        </div>
+        )
+    }
 }
 export default Sidepanel;
