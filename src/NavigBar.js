@@ -17,14 +17,10 @@ class Navigbar extends React.Component {
                     style={{ maxHeight: '100px' }}
                     navbarScroll
                 >
-                    <Nav.Link href="#">Men</Nav.Link>
-                    <Nav.Link href="#">Women</Nav.Link>
+                    {/* <Nav.Link href="#">Men</Nav.Link> */}
                     <NavDropdown title="Link" id="navbarScrollingDropdown">
                     <NavDropdown.Item href="#men_tops">Tops</NavDropdown.Item>
-                    <NavDropdown.Item href="#men_lower">Lower</NavDropdown.Item>
-                    <NavDropdown.Item href="#men_casual">Casual</NavDropdown.Item>
-                    <NavDropdown.Item href="#men_formal">Formal</NavDropdown.Item>
-                    <NavDropdown.Item href="#men_undergarments">Undergarments</NavDropdown.Item>
+                    <NavDropdown.Item href="#men_lower">Bottom</NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item href="#">
                         Some Action
