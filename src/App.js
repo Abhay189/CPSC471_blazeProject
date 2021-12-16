@@ -1,21 +1,21 @@
-import './CSS/App.css';
-import './NavigBar'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import React from 'react';
-import Navigbar from './NavigBar';
-import { Col, Container, Row } from 'react-bootstrap';
-import Sidepanel from './Sidepanel';
-import RightColumn from './RightColumn';
-import Adminsidepanel from './AdminSidepanel';
-import AdminSupplierAddForm  from './AdminSupplierForm';
-import AdminViewSupplier from './AdminViewSuppliers'
-import AdminInventoryProducts from './AdminInventoryProducts';
-import AdminRegisteredUser from './AdminRegisteredUsers';
-import AdminDiscount from './AdminDiscount';
-import AdminSalesReport from './SalesReport';
-import LetsLogin from './TheLogin';
+import "./CSS/App.css";
+import "./NavigBar";
+import "bootstrap/dist/css/bootstrap.min.css";
+import React from "react";
+import Navigbar from "./NavigBar";
+import { Col, Container, Row } from "react-bootstrap";
+import Sidepanel from "./Sidepanel";
+import RightColumn from "./RightColumn";
+import Adminsidepanel from "./AdminSidepanel";
+import AdminSupplierAddForm from "./AdminSupplierForm";
+import AdminViewSupplier from "./AdminViewSuppliers";
+import AdminInventoryProducts from "./AdminInventoryProducts";
+import AdminRegisteredUser from "./AdminRegisteredUsers";
+import AdminDiscount from "./AdminDiscount";
+import AdminSalesReport from "./SalesReport";
+import LetsLogin from "./TheLogin";
 
-let API_URL = "44317";
+let API_URL = "44392";
 
 // class App extends React.Component {
 
@@ -44,12 +44,12 @@ let API_URL = "44317";
 //   }
 
 //   render(){
-//     if(this.state.homeScreenButton){    //this shows the to a normal user who is not logged in 
+//     if(this.state.homeScreenButton){    //this shows the to a normal user who is not logged in
 //       return(
 //         <div className="App">
-//         <Navigbar 
-//           loginbuttonhandler = {this.loginbuttonhandler} 
-//           AdminLoginButtonHandler = {this.AdminLoginButtonHandler} 
+//         <Navigbar
+//           loginbuttonhandler = {this.loginbuttonhandler}
+//           AdminLoginButtonHandler = {this.AdminLoginButtonHandler}
 //           HomeScreenButtonHandler = {this.HomeScreenButtonHandler}
 //         />
 //         <Container fluid className="mainContainer">
@@ -76,12 +76,12 @@ let API_URL = "44317";
 //       return(
 //         <div>
 //           <div className="App">
-//             <Navigbar 
+//             <Navigbar
 //               loginbuttonhandler = {this.loginbuttonhandler}/>
 //             <Container fluid className="mainContainer">
 //               <Row>
 //                 <Col className="leftCol" lg = {4} sm= {12}>
-//                   <Adminsidepanel 
+//                   <Adminsidepanel
 //                     viewInventoryButtonHandler = {this.viewInventoryButtonHandler}
 //                     addSupplierButtonHandler = {this.addSupplierButtonHandler}
 //                     viewSupplierButtonHandler = {this.viewSupplierButtonHandler}
@@ -99,7 +99,7 @@ let API_URL = "44317";
 //         </div>
 //       )
 //     }
-    
+
 //   }
 // //----------------------------------------------------------------------------------------------------------------------------------------
 //   viewInventoryButtonHandler(){
@@ -133,7 +133,7 @@ let API_URL = "44317";
 //       });
 //   }
 
-// //---------------------------------------------------------------------------------------------------------------------------------------- 
+// //----------------------------------------------------------------------------------------------------------------------------------------
 //   HomeScreenButtonHandler(){
 //       this.setState({
 //         isAdmin: false,
@@ -157,8 +157,7 @@ let API_URL = "44317";
 // //----------------------------------------------------------------------------------------------------------------------------------------
 // }
 class App extends React.Component {
-
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       isloggedin: false,
@@ -168,133 +167,140 @@ class App extends React.Component {
       isAdmin: false,
       search: "",
       screennumber: 1,
-      AdminPannelComponent: <AdminInventoryProducts API_URL={API_URL} className = "adminSales"/>
-    }
+      AdminPannelComponent: (
+        <AdminInventoryProducts API_URL={API_URL} className="adminSales" />
+      ),
+    };
 
     this.loginbuttonhandler = this.loginbuttonhandler.bind(this);
     this.AdminLoginButtonHandler = this.AdminLoginButtonHandler.bind(this);
     this.HomeScreenButtonHandler = this.HomeScreenButtonHandler.bind(this);
 
-    this.viewInventoryButtonHandler = this.viewInventoryButtonHandler.bind(this);
+    this.viewInventoryButtonHandler =
+      this.viewInventoryButtonHandler.bind(this);
     this.addSupplierButtonHandler = this.addSupplierButtonHandler.bind(this);
     this.viewSupplierButtonHandler = this.viewSupplierButtonHandler.bind(this);
-    this.registeredUserButtonHandler = this.registeredUserButtonHandler.bind(this);
+    this.registeredUserButtonHandler =
+      this.registeredUserButtonHandler.bind(this);
     this.discountButtonHandler = this.discountButtonHandler.bind(this);
     this.SalesReportButtonHandler = this.SalesReportButtonHandler.bind(this);
   }
 
-  render(){
-    if(this.state.screennumber == 1){    //this shows the to a normal user who is not logged in 
-      return(
+  render() {
+    if (this.state.screennumber == 1) {
+      //this shows the to a normal user who is not logged in
+      return (
         <div className="App">
-        <Navigbar 
-          loginbuttonhandler = {this.loginbuttonhandler} 
-          AdminLoginButtonHandler = {this.AdminLoginButtonHandler} 
-          HomeScreenButtonHandler = {this.HomeScreenButtonHandler}
-        />
-        <Container fluid className="mainContainer">
-          <Row>
-            <Col className="leftCol" lg = {4} sm= {12}>
-              <Sidepanel/>
-            </Col>
-              <Col className = "rightColumn">
-                <RightColumn API_URL={API_URL}/>
-            </Col>
-          </Row>
-        </Container>
-      </div>
-      )
-    }
-    if(this.state.screennumber == 2){    //this shows the login page after the user clicks the login button
-      return(
-        <div>
-           <LetsLogin/>
+          <Navigbar
+            loginbuttonhandler={this.loginbuttonhandler}
+            AdminLoginButtonHandler={this.AdminLoginButtonHandler}
+            HomeScreenButtonHandler={this.HomeScreenButtonHandler}
+          />
+          <Container fluid className="mainContainer">
+            <Row>
+              <Col className="leftCol" lg={4} sm={12}>
+                <Sidepanel />
+              </Col>
+              <Col className="rightColumn">
+                <RightColumn API_URL={API_URL} />
+              </Col>
+            </Row>
+          </Container>
         </div>
-      )
+      );
     }
-    if(this.state.screennumber == 3){
-      return(
+    if (this.state.screennumber == 2) {
+      //this shows the login page after the user clicks the login button
+      return (
+        <div>
+          <LetsLogin />
+        </div>
+      );
+    }
+    if (this.state.screennumber == 3) {
+      return (
         <div>
           <div className="App">
-          <Navigbar 
-          loginbuttonhandler = {this.loginbuttonhandler} 
-          AdminLoginButtonHandler = {this.AdminLoginButtonHandler} 
-          HomeScreenButtonHandler = {this.HomeScreenButtonHandler}
-        />
+            <Navigbar
+              loginbuttonhandler={this.loginbuttonhandler}
+              AdminLoginButtonHandler={this.AdminLoginButtonHandler}
+              HomeScreenButtonHandler={this.HomeScreenButtonHandler}
+            />
             <Container fluid className="mainContainer">
               <Row>
-                <Col className="leftCol" lg = {4} sm= {12}>
-                  <Adminsidepanel 
-                    viewInventoryButtonHandler = {this.viewInventoryButtonHandler}
-                    addSupplierButtonHandler = {this.addSupplierButtonHandler}
-                    viewSupplierButtonHandler = {this.viewSupplierButtonHandler}
-                    registeredUserButtonHandler = {this.registeredUserButtonHandler}
-                    discountButtonHandler = {this.discountButtonHandler}
-                    SalesReportButtonHandler = {this.SalesReportButtonHandler}
+                <Col className="leftCol" lg={4} sm={12}>
+                  <Adminsidepanel
+                    viewInventoryButtonHandler={this.viewInventoryButtonHandler}
+                    addSupplierButtonHandler={this.addSupplierButtonHandler}
+                    viewSupplierButtonHandler={this.viewSupplierButtonHandler}
+                    registeredUserButtonHandler={
+                      this.registeredUserButtonHandler
+                    }
+                    discountButtonHandler={this.discountButtonHandler}
+                    SalesReportButtonHandler={this.SalesReportButtonHandler}
                   />
                 </Col>
-                <Col className = "admincol">
+                <Col className="admincol">
                   {this.state.AdminPannelComponent}
                 </Col>
               </Row>
             </Container>
           </div>
         </div>
-      )
+      );
     }
-    
   }
-//----------------------------------------------------------------------------------------------------------------------------------------
-  viewInventoryButtonHandler(){
+  //----------------------------------------------------------------------------------------------------------------------------------------
+  viewInventoryButtonHandler() {
     this.setState({
-    AdminPannelComponent: <AdminInventoryProducts API_URL = {API_URL} />
+      AdminPannelComponent: <AdminInventoryProducts API_URL={API_URL} />,
     });
   }
-  addSupplierButtonHandler(){
+  addSupplierButtonHandler() {
     this.setState({
-      AdminPannelComponent: <AdminSupplierAddForm API_URL={API_URL} />
-      });
+      AdminPannelComponent: <AdminSupplierAddForm API_URL={API_URL} />,
+    });
   }
-  viewSupplierButtonHandler(){
+  viewSupplierButtonHandler() {
     this.setState({
-      AdminPannelComponent: <AdminViewSupplier API_URL={API_URL} />
-      });
+      AdminPannelComponent: <AdminViewSupplier API_URL={API_URL} />,
+    });
   }
-  registeredUserButtonHandler(){
+  registeredUserButtonHandler() {
     this.setState({
-      AdminPannelComponent: <AdminRegisteredUser API_URL={API_URL} />
-      });
+      AdminPannelComponent: <AdminRegisteredUser API_URL={API_URL} />,
+    });
   }
-  discountButtonHandler(){
+  discountButtonHandler() {
     this.setState({
-      AdminPannelComponent: <AdminDiscount API_URL={API_URL} />
-      });
+      AdminPannelComponent: <AdminDiscount API_URL={API_URL} />,
+    });
   }
-  SalesReportButtonHandler(){
+  SalesReportButtonHandler() {
     this.setState({
-      AdminPannelComponent: <AdminSalesReport API_URL={API_URL} />
-      });
+      AdminPannelComponent: <AdminSalesReport API_URL={API_URL} />,
+    });
   }
 
-//---------------------------------------------------------------------------------------------------------------------------------------- 
-  HomeScreenButtonHandler(){
-      this.setState({
-        screennumber: 1
-      });
+  //----------------------------------------------------------------------------------------------------------------------------------------
+  HomeScreenButtonHandler() {
+    this.setState({
+      screennumber: 1,
+    });
   }
 
-  AdminLoginButtonHandler(){
-      this.setState({
-        screennumber: 3
-      });
+  AdminLoginButtonHandler() {
+    this.setState({
+      screennumber: 3,
+    });
   }
-  loginbuttonhandler(){
-      this.setState({
-        screennumber: 2
-      });
-    }
-  
-//----------------------------------------------------------------------------------------------------------------------------------------
+  loginbuttonhandler() {
+    this.setState({
+      screennumber: 2,
+    });
+  }
+
+  //----------------------------------------------------------------------------------------------------------------------------------------
 }
 
 export default App;
