@@ -25,9 +25,17 @@ class AdminViewSupplier extends React.Component {
       .catch();
   }
 
-  deleteBtn() {
-    let url = "https://localhost:" + this.props.API_URL + "/api/suppliers";
-    console.log(url);
+  deleteBtn(supID, i) {
+    this.state.supplierArray.splice(i, 1);
+    this.setState({});
+
+    let url = `https://localhost:${this.props.API_URL}/api/suppliers/${supID}`;
+    fetch(url, {
+      method: "DELETE",
+    })
+      .then((response) => console.log(response.json()))
+      .then()
+      .catch();
   }
 
   render() {
@@ -49,7 +57,11 @@ class AdminViewSupplier extends React.Component {
             </td>
             <td>
               <button
-                onClick={this.deleteBtn(this.state.supplierArray[i].SupID)}
+                onClick={this.deleteBtn.bind(
+                  this,
+                  this.state.supplierArray[i].SupID,
+                  i
+                )}
               >
                 Delete
               </button>

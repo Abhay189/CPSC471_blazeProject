@@ -26,6 +26,19 @@ class AdminInventoryProducts extends React.Component {
       .catch();
   }
 
+  deleteBtn(PID, i) {
+    this.state.productArray.splice(i, 1);
+    this.setState({});
+
+    let url = `https://localhost:${this.props.API_URL}/api/products/${PID}`;
+    fetch(url, {
+      method: "DELETE",
+    })
+      .then((response) => console.log(response.json()))
+      .then()
+      .catch();
+  }
+
   render() {
     let products = [];
     if (this.state.productArray.length > 0) {
@@ -42,7 +55,15 @@ class AdminInventoryProducts extends React.Component {
               <tr>Color: {this.state.productArray[i].Color}</tr>
             </td>
             <td>
-              <button>Delete</button>
+              <button
+                onClick={this.deleteBtn.bind(
+                  this,
+                  this.state.productArray[i].PID,
+                  i
+                )}
+              >
+                Delete
+              </button>
             </td>
           </tr>
         );
