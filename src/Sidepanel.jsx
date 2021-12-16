@@ -25,6 +25,7 @@ class Sidepanel extends React.Component{
             White: false,
             Yellow: false,
         }
+        this.myfun = this.myfun.bind(this);
     }
 
     myfun(){
@@ -51,7 +52,7 @@ class Sidepanel extends React.Component{
             White: document.getElementById("White").checked,
             Yellow: document.getElementById("Yellow").checked,
         })
-        // console.log(this.state);
+        console.log(this.state);
     }
 
     componentDidMount(){
