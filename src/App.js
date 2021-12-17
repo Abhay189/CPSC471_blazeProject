@@ -199,14 +199,15 @@ class App extends React.Component {
             HomeScreenButtonHandler={this.HomeScreenButtonHandler}
           />
           <Container fluid className="mainContainer">
-            <Row>
+            {/* <Row>
               <Col className="leftCol" lg={4} sm={12}>
                 <Sidepanel />
               </Col>
               <Col className="rightColumn">
                 <RightColumn API_URL={API_URL} />
               </Col>
-            </Row>
+            </Row> */}
+            <RightColumn API_URL={API_URL} />
           </Container>
         </div>
       );

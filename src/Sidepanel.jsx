@@ -94,15 +94,15 @@ class Sidepanel extends React.Component {
           )}`
         );
     }
-    console.log(apiCalls);
+    // console.log(apiCalls);
 
-    let newArr = new Array();
+    let newArrr = new Array();
     apiCalls.forEach((url) => {
       fetch(url)
         .then((response) => response.json())
-        .then((data) => newArr.push(data));
+        .then((data) => {newArrr.push(data)
+        this.props.rerenderfunction(newArrr)});
     });
-    console.log(newArr);
   }
 
   render() {

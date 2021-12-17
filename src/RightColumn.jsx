@@ -2,6 +2,8 @@ import React from "react";
 import ClothesCard from "./Cards";
 import image from "./image.png";
 import "./CSS/RightColumn.css";
+import Sidepanel from "./Sidepanel";
+import { Col, Container, Row } from "react-bootstrap";
 
 class RightColumn extends React.Component {
   constructor(props) {
@@ -10,6 +12,7 @@ class RightColumn extends React.Component {
       productArray: [],
       error: null,
     };
+    this.rerenderfunction = this.rerenderfunction.bind(this);
   }
 
   buildList = (data) => {
@@ -24,69 +27,30 @@ class RightColumn extends React.Component {
       .then((response) => response.json())
       .then(this.buildList)
       .catch();
-
-    // axios({
-    //   method: 'get',
-    //   url: "https://localhost:44317/api/products",
-    //   responseType: 'stream'
-    // })
-    //   .then(function (response) {
-    //     this.setState({
-    //       productArray: response
-    //     })
-    //     // console.log(response);
-    //   });
-
-    // const axios = require("axios");
-    // axios
-    //   .get("https://localhost:44317/api/products")
-    //   .then(function (response) {
-    //     // console.log(response);
-    //     this.setState({
-    //       productArray: response.data
-    //     })
-    //   })
-    //   .catch(function (error) {
-    //     console.log(error);
-    //   })
-    //   .then(function () {
-    //     console.log(this.state.productArray);
-    //   });
   }
 
-  // makeGetRequest(path) {
-
-  //   return new Promise(function (resolve, reject) {
-  //     const axios = require("axios");
-  //     axios.get(path).then(
-  //         (response) => {
-  //           var result = response.data;
-  //           // console.log('Processing Request');
-  //           for (var i = 0; i < response.data.length; i++) {
-  //             productArray.push(response.data[i]);
-  //           }
-
-  //           // console.log(prokkductArray);
-  //           resolve(result);
-  //         },
-  //         (error) => {
-  //             console.log(error);
-  //         }
-  //     );
-  //   });
-  // }
-
-  // async secondfunction(){
-  //   var result = await this.makeGetRequest("https://localhost:44317/api/products");
-  //   // console.log(result);
-  //   return{
-  //     result
-  //   }
-  // }
+  rerenderfunction(something){
+    let fillarr = something;
+    // console.log(fillarr.length);
+    if(fillarr.length != 0){
+      let arrry = new Array();
+      for(var i = 0; i<fillarr.length; i++){
+        for(var r = 0; r < fillarr[i].length ; r++){
+          arrry.push(fillarr[i][r]);
+          // console.log("foo");
+        }
+      }
+      this.setState({
+        productArray: arrry
+      })
+      // console.log(arrry);
+    }
+  }
 
   render() {
     let cards = [];
     if (this.state.productArray.length > 0) {
+      // console.log(this.state.productArray);
       for (let i = 0; i < this.state.productArray.length; i++) {
         cards.push(
           <ClothesCard
@@ -101,12 +65,25 @@ class RightColumn extends React.Component {
         // console.log(this.state.productArray);
       }
       return (
-        <div>
-          <div className="heading">
-            <h1 id="men_tops">Products</h1>
-          </div>
-          <div className="cardHolder">{cards}</div>
-        </div>
+        <Row>
+              <Col className="leftCol" lg={4} sm={12}>
+                <Sidepanel rerenderfunction = {this.rerenderfunction}/>
+              </Col>
+              <Col className="rightColumn">
+                <div>
+                  <div className="heading">
+                    <h1 id="men_tops">Products</h1>
+                  </div>
+                  <div className="cardHolder">{cards}</div>
+                </div>
+              </Col>
+            </Row>
+        // <div>
+        //   <div className="heading">
+        //     <h1 id="men_tops">Products</h1>
+        //   </div>
+        //   <div className="cardHolder">{cards}</div>
+        // </div>
       );
     } else {
       return (
