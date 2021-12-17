@@ -1,5 +1,12 @@
 .adminsupplierbackground{
-    margin: 20px;
+    /* margin: 20px; */
     background-color: white;
+    text-align: center;
+
     border-radius: 10px;
+}
+
+.lab {
+    display: block;
+    position: relative;
 }
