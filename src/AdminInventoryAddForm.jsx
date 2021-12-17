@@ -1,44 +1,44 @@
-import {Button,Form } from "react-bootstrap";
-import './CSS/AdminSupplierForm.css';
-import React,{useState}  from "react";
+import { Button, Form } from "react-bootstrap";
+import "./CSS/AdminSupplierForm.css";
+import React, { useState } from "react";
 import axios, { Axios } from "axios";
 
-function AdminInventoryAddForm(){
-  const url = "https://localhost:44309/api/products";
-  const [data, setData] =  useState({
-    PID:"",
+function AdminInventoryAddForm() {
+  const API_URL = 44392;
+  const url = `https://localhost:${API_URL}/api/products`;
+  const [data, setData] = useState({
+    PID: "",
     iName: "",
     iSize: "",
-    iPrice: "", 
+    iPrice: "",
     iColor: "",
-    iDescr: ""
-  })
+    iDescr: "",
+  });
 
-  function submit(e){
-    console.log("wow")
+  function submit(e) {
+    console.log("wow");
     e.preventDefault();
-    axios.post(url,{ 
-      PID: '56',
-      Name:data.iName,
-      Price: parseFloat(data.iPrice),
-      Descr: data.iDescr,
-      Color: data.iColor
-    })
+    axios
+      .post(url, {
+        PID: "56",
+        Name: data.iName,
+        Price: parseFloat(data.iPrice),
+        Descr: data.iDescr,
+        Color: data.iColor,
+      })
 
-    .then(res => {
-      console.log(res.data )
-    })
-
+      .then((res) => {
+        console.log(res.data);
+      });
   }
-  function handle(e){
-    const newData = {...data}
-    newData[e.target.id] = e.target.value
-    setData(newData)
-    console.log(newData)
+  function handle(e) {
+    const newData = { ...data };
+    newData[e.target.id] = e.target.value;
+    setData(newData);
+    console.log(newData);
   }
- 
 
-  return(
+  return (
     <div className="adminsupplierbackground">
       {/*<Form onSubmit= {(e)=> submit(e)}> 
         <Form.Group className="mb-3" onChange= {(e)=> handle(e)} id= "iName" value = {data.iName}>
@@ -69,38 +69,59 @@ function AdminInventoryAddForm(){
           Submit
         </button>
       </Form>*/}
-      <form onSubmit= {(e)=> submit(e)}>
+      <form onSubmit={(e) => submit(e)}>
         <table>
-          <br/><br/>
-        <tr>
-        <Form.Label className="lab">Name</Form.Label>
-        <input onChange= {(e)=> handle(e)} id= "iName" value = {data.iName}></input>
-        </tr>
-        <br/>
-        <tr>
-        <Form.Label className="lab">Size</Form.Label>
-        <input onChange= {(e)=> handle(e)} id= "iSize" value = {data.iSize}></input>
-        </tr>
-        <br/>
-        <tr>
-        <Form.Label className="lab">Price</Form.Label>
-        <input onChange= {(e)=> handle(e)} id= "iPrice" value = {data.iPrice}></input>
-        </tr>
-        <br/>
-        <tr>
-        <Form.Label className="lab">Color</Form.Label>
-        <input onChange= {(e)=> handle(e)} id= "iColor" value = {data.iColor}></input>
-        </tr>
-        <br/>
-        <tr>
-        <Form.Label className="lab">Description</Form.Label>
-        <input onChange= {(e)=> handle(e)} id= "iDescr" value = {data.iDescr}></input>
-        </tr>
-        <br/>
-        <button>Submit</button>
+          <br />
+          <br />
+          <tr>
+            <Form.Label className="lab">Name</Form.Label>
+            <input
+              onChange={(e) => handle(e)}
+              id="iName"
+              value={data.iName}
+            ></input>
+          </tr>
+          <br />
+          <tr>
+            <Form.Label className="lab">Size</Form.Label>
+            <input
+              onChange={(e) => handle(e)}
+              id="iSize"
+              value={data.iSize}
+            ></input>
+          </tr>
+          <br />
+          <tr>
+            <Form.Label className="lab">Price</Form.Label>
+            <input
+              onChange={(e) => handle(e)}
+              id="iPrice"
+              value={data.iPrice}
+            ></input>
+          </tr>
+          <br />
+          <tr>
+            <Form.Label className="lab">Color</Form.Label>
+            <input
+              onChange={(e) => handle(e)}
+              id="iColor"
+              value={data.iColor}
+            ></input>
+          </tr>
+          <br />
+          <tr>
+            <Form.Label className="lab">Description</Form.Label>
+            <input
+              onChange={(e) => handle(e)}
+              id="iDescr"
+              value={data.iDescr}
+            ></input>
+          </tr>
+          <br />
+          <button>Submit</button>
         </table>
       </form>
     </div>
-  )
+  );
 }
 export default AdminInventoryAddForm;

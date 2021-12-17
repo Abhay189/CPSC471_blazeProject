@@ -14,9 +14,9 @@ import AdminRegisteredUser from "./AdminRegisteredUsers";
 import AdminDiscount from "./AdminDiscount";
 import AdminSalesReport from "./SalesReport";
 import LetsLogin from "./TheLogin";
-import AdminInventoryAddForm from './AdminInventoryAddForm';
+import AdminInventoryAddForm from "./AdminInventoryAddForm";
 
-let API_URL = "44317";
+let API_URL = "44392";
 
 // class App extends React.Component {
 
@@ -179,7 +179,7 @@ class App extends React.Component {
 
     this.viewInventoryButtonHandler =
       this.viewInventoryButtonHandler.bind(this);
-      this.addInventoryButtonHandler = this.addInventoryButtonHandler.bind(this);
+    this.addInventoryButtonHandler = this.addInventoryButtonHandler.bind(this);
     this.addSupplierButtonHandler = this.addSupplierButtonHandler.bind(this);
     this.viewSupplierButtonHandler = this.viewSupplierButtonHandler.bind(this);
     this.registeredUserButtonHandler =
@@ -233,13 +233,15 @@ class App extends React.Component {
               <Row>
                 <Col className="leftCol" lg={4} sm={12}>
                   <Adminsidepanel
-                    viewInventoryButtonHandler = {this.viewInventoryButtonHandler}
-                    addInventoryButtonHandler = {this.addInventoryButtonHandler}
-                    addSupplierButtonHandler = {this.addSupplierButtonHandler}
-                    viewSupplierButtonHandler = {this.viewSupplierButtonHandler}
-                    registeredUserButtonHandler = {this.registeredUserButtonHandler}
-                    discountButtonHandler = {this.discountButtonHandler}
-                    viewdiscountButtonHandler = {this.viewdiscountButtonHandler}
+                    viewInventoryButtonHandler={this.viewInventoryButtonHandler}
+                    addInventoryButtonHandler={this.addInventoryButtonHandler}
+                    addSupplierButtonHandler={this.addSupplierButtonHandler}
+                    viewSupplierButtonHandler={this.viewSupplierButtonHandler}
+                    registeredUserButtonHandler={
+                      this.registeredUserButtonHandler
+                    }
+                    discountButtonHandler={this.discountButtonHandler}
+                    viewdiscountButtonHandler={this.viewdiscountButtonHandler}
                   />
                 </Col>
                 <Col className="admincol">
@@ -258,12 +260,12 @@ class App extends React.Component {
       AdminPannelComponent: <AdminInventoryProducts API_URL={API_URL} />,
     });
   }
-  addInventoryButtonHandler(){
+  addInventoryButtonHandler() {
     this.setState({
-    AdminPannelComponent: <AdminInventoryAddForm API_URL={API_URL}/>,
-    isAdmin:true,
-    homeScreenButton:false,  
-  });
+      AdminPannelComponent: <AdminInventoryAddForm API_URL={API_URL} />,
+      isAdmin: true,
+      homeScreenButton: false,
+    });
   }
   addSupplierButtonHandler() {
     this.setState({

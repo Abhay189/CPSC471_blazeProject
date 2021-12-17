@@ -29,21 +29,29 @@ class RightColumn extends React.Component {
       .catch();
   }
 
-  rerenderfunction(something){
+  rerenderfunction(something) {
     let fillarr = something;
     // console.log(fillarr.length);
-    if(fillarr.length != 0){
+    if (fillarr.length != 0) {
       let arrry = new Array();
-      for(var i = 0; i<fillarr.length; i++){
-        for(var r = 0; r < fillarr[i].length ; r++){
+      for (var i = 0; i < fillarr.length; i++) {
+        for (var r = 0; r < fillarr[i].length; r++) {
           arrry.push(fillarr[i][r]);
           // console.log("foo");
         }
       }
+
+      const result = arrry.reduce((unique, o) => {
+        if (!unique.some((obj) => obj.PID === o.PID)) {
+          unique.push(o);
+        }
+        return unique;
+      }, []);
+      //console.log(result);
+
       this.setState({
-        productArray: arrry
-      })
-      // console.log(arrry);
+        productArray: result,
+      });
     }
   }
 
@@ -66,18 +74,18 @@ class RightColumn extends React.Component {
       }
       return (
         <Row>
-              <Col className="leftCol" lg={4} sm={12}>
-                <Sidepanel rerenderfunction = {this.rerenderfunction}/>
-              </Col>
-              <Col className="rightColumn">
-                <div>
-                  <div className="heading">
-                    <h1 id="men_tops">Products</h1>
-                  </div>
-                  <div className="cardHolder">{cards}</div>
-                </div>
-              </Col>
-            </Row>
+          <Col className="leftCol" lg={4} sm={12}>
+            <Sidepanel rerenderfunction={this.rerenderfunction} />
+          </Col>
+          <Col className="rightColumn">
+            <div>
+              <div className="heading">
+                <h1 id="men_tops">Products</h1>
+              </div>
+              <div className="cardHolder">{cards}</div>
+            </div>
+          </Col>
+        </Row>
         // <div>
         //   <div className="heading">
         //     <h1 id="men_tops">Products</h1>

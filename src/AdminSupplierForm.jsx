@@ -1,49 +1,48 @@
-import {Button,Form } from "react-bootstrap";
-import './CSS/AdminSupplierForm.css';
-import React,{useState}  from "react";
-import axios, * as others from 'axios';
+import { Button, Form } from "react-bootstrap";
+import "./CSS/AdminSupplierForm.css";
+import React, { useState } from "react";
+import axios, * as others from "axios";
 
-
-function AdminSupplierAddForm(){
-  const url = "https://localhost:44317/api/supplier";
-  const [data, setData] =  useState({
-    SupID:"",
+function AdminSupplierAddForm() {
+  const API_URL = 44392;
+  const url = `https://localhost:${API_URL}}/api/supplier`;
+  const [data, setData] = useState({
+    SupID: "",
     SName: "",
     SEmail: "",
     SPhone: "",
     SStreet: "",
-    SCity: "", 
+    SCity: "",
     SPostal: "",
-    SDescr: ""
-  })
+    SDescr: "",
+  });
 
-  function submit(e){
-    console.log("supplier")
+  function submit(e) {
+    console.log("supplier");
     e.preventDefault();
-    axios.post(url,{ 
-      SupID: '56',
-      Name:data.SName,
-      Email: data.SEmail,
-      PhoneNo: parseFloat(data.SPhone),
-      Street: parseInt(data.SStreet),
-      City: data.SCity,
-      PostalCode: data.SPostal
-    })
+    axios
+      .post(url, {
+        SupID: "56",
+        Name: data.SName,
+        Email: data.SEmail,
+        PhoneNo: parseFloat(data.SPhone),
+        Street: parseInt(data.SStreet),
+        City: data.SCity,
+        PostalCode: data.SPostal,
+      })
 
-    .then(res => {
-      console.log(res.data )
-    })
-
+      .then((res) => {
+        console.log(res.data);
+      });
   }
-  function handle(e){
-    const newData = {...data}
-    newData[e.target.id] = e.target.value
-    setData(newData)
-    console.log(newData)
+  function handle(e) {
+    const newData = { ...data };
+    newData[e.target.id] = e.target.value;
+    setData(newData);
+    console.log(newData);
   }
- 
 
-  return(
+  return (
     <div className="adminsupplierbackground">
       {/*<Form onSubmit= {(e)=> submit(e)}> 
         <Form.Group className="mb-3" onChange= {(e)=> handle(e)} id= "iName" value = {data.iName}>
@@ -74,43 +73,68 @@ function AdminSupplierAddForm(){
           Submit
         </button>
       </Form>*/}
-      <form onSubmit= {(e)=> submit(e)}>
+      <form onSubmit={(e) => submit(e)}>
         <table>
-          <br/><br/>
-        <tr>
-        <Form.Label className="lab">Name</Form.Label>
-        <input onChange= {(e)=> handle(e)} id= "SName" value = {data.SName}></input>
-        </tr>
-        <br/>
-        <tr>
-        <Form.Label className="lab">Email</Form.Label>
-        <input onChange= {(e)=> handle(e)} id= "SEmail" value = {data.SEmail}></input>
-        </tr>
-        <br/>
-        <tr>
-        <Form.Label className="lab">Phone Number</Form.Label>
-        <input onChange= {(e)=> handle(e)} id= "SPhone" value = {data.SPhone}></input>
-        </tr>
-        <br/>
-        <tr>
-        <Form.Label className="lab">Street</Form.Label>
-        <input onChange= {(e)=> handle(e)} id= "SStreet" value = {data.SStreet}></input>
-        </tr>
-        <br/>
-        <tr>
-        <Form.Label className="lab">City</Form.Label>
-        <input onChange= {(e)=> handle(e)} id= "SCity" value = {data.SCity}></input>
-        </tr>
-        <br/>
-        <tr>
-        <Form.Label className="lab">Postal Code</Form.Label>
-        <input onChange= {(e)=> handle(e)} id= "SPostal" value = {data.SPostal}></input>
-        </tr>
-        <br/>
-        <button>Submit</button>
+          <br />
+          <br />
+          <tr>
+            <Form.Label className="lab">Name</Form.Label>
+            <input
+              onChange={(e) => handle(e)}
+              id="SName"
+              value={data.SName}
+            ></input>
+          </tr>
+          <br />
+          <tr>
+            <Form.Label className="lab">Email</Form.Label>
+            <input
+              onChange={(e) => handle(e)}
+              id="SEmail"
+              value={data.SEmail}
+            ></input>
+          </tr>
+          <br />
+          <tr>
+            <Form.Label className="lab">Phone Number</Form.Label>
+            <input
+              onChange={(e) => handle(e)}
+              id="SPhone"
+              value={data.SPhone}
+            ></input>
+          </tr>
+          <br />
+          <tr>
+            <Form.Label className="lab">Street</Form.Label>
+            <input
+              onChange={(e) => handle(e)}
+              id="SStreet"
+              value={data.SStreet}
+            ></input>
+          </tr>
+          <br />
+          <tr>
+            <Form.Label className="lab">City</Form.Label>
+            <input
+              onChange={(e) => handle(e)}
+              id="SCity"
+              value={data.SCity}
+            ></input>
+          </tr>
+          <br />
+          <tr>
+            <Form.Label className="lab">Postal Code</Form.Label>
+            <input
+              onChange={(e) => handle(e)}
+              id="SPostal"
+              value={data.SPostal}
+            ></input>
+          </tr>
+          <br />
+          <button>Submit</button>
         </table>
       </form>
     </div>
-  )
+  );
 }
 export default AdminSupplierAddForm;

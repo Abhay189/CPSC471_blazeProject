@@ -18,7 +18,7 @@ class AdminViewSupplier extends React.Component {
   };
 
   componentDidMount() {
-    let url = "https://localhost:" + 44317 + "/api/suppliers";
+    let url = `https://localhost:${this.props.API_URL}/api/suppliers`;
     fetch(url)
       .then((response) => response.json())
       .then(this.buildList)
@@ -56,7 +56,7 @@ class AdminViewSupplier extends React.Component {
               <tr>Phone Number:{this.state.supplierArray[i].PhoneNo}</tr>
             </td>
             <td>
-            <button>Edit</button>        
+              <button>Edit</button>
               <button
                 onClick={this.deleteBtn.bind(
                   this,
