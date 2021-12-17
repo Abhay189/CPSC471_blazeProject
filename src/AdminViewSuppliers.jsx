@@ -18,7 +18,7 @@ class AdminViewSupplier extends React.Component {
   };
 
   componentDidMount() {
-    let url = "https://localhost:" + 44309 + "/api/suppliers";
+    let url = "https://localhost:" + 44317 + "/api/suppliers";
     fetch(url)
       .then((response) => response.json())
       .then(this.buildList)

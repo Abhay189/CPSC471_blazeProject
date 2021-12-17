@@ -18,7 +18,7 @@ class AdminRegisteredUser extends React.Component {
   };
 
   componentDidMount() {
-    let url = `https://localhost:${44309}/api/users`;
+    let url = `https://localhost:${this.props.API_URL}/api/users`;
     fetch(url)
       .then((response) => response.json())
       .then(this.buildList)
@@ -29,7 +29,7 @@ class AdminRegisteredUser extends React.Component {
     this.state.usersArray.splice(i, 1);
     this.setState({});
 
-    let url = `https://localhost:${44309}/api/users/${loginID}`;
+    let url = `https://localhost:${this.props.API_URL}/api/users/${loginID}`;
     fetch(url, {
       method: "DELETE",
     })

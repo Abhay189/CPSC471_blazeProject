@@ -5,7 +5,7 @@ import axios, * as others from 'axios';
 
 
 function AdminSupplierAddForm(){
-  const url = "https://localhost:44309/api/supplier";
+  const url = "https://localhost:44317/api/supplier";
   const [data, setData] =  useState({
     SupID:"",
     SName: "",

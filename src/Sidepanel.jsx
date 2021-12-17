@@ -61,7 +61,7 @@ class Sidepanel extends React.Component {
   filterBtn() {
     // IDK why this.props.API_URL return undefined
     // ********
-    let API_URL = "44392";
+    let API_URL = "44317";
 
     let apiCalls = new Array();
     for (let [key, value] of Object.entries(this.state)) {
@@ -102,6 +102,7 @@ class Sidepanel extends React.Component {
         .then((response) => response.json())
         .then((data) => newArr.push(data));
     });
+    console.log(newArr);
   }
 
   render() {

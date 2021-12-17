@@ -19,7 +19,7 @@ class AdminInventoryProducts extends React.Component {
   };
 //this.props.API_URL
   componentDidMount() {
-    let url = "https://localhost:" + 44309 + "/api/products";
+    let url = `https://localhost:${this.props.API_URL}/api/products`;
     fetch(url)
       .then((response) => response.json())
       .then(this.buildList)
