@@ -1,6 +1,5 @@
 import React from "react";
 import ClothesCard from "./Cards";
-import axios from "axios";
 import image from "./image.png";
 import "./CSS/RightColumn.css";
 
@@ -9,24 +8,23 @@ class RightColumn extends React.Component {
     super(props);
     this.state = {
       productArray: [],
-      error: null
-    }
+      error: null,
+    };
   }
 
   buildList = (data) => {
     this.setState({
-      productArray: data
-    })
-  }
+      productArray: data,
+    });
+  };
 
   componentDidMount() {
-    let url = "https://localhost:" + this.props.API_URL + "/api/products"; 
+    let url = "https://localhost:" + this.props.API_URL + "/api/products";
     fetch(url)
-    .then(response => response.json())
-    .then(this.buildList)
-    .catch()  
-    
-    
+      .then((response) => response.json())
+      .then(this.buildList)
+      .catch();
+
     // axios({
     //   method: 'get',
     //   url: "https://localhost:44317/api/products",
@@ -38,9 +36,6 @@ class RightColumn extends React.Component {
     //     })
     //     // console.log(response);
     //   });
-
-
-
 
     // const axios = require("axios");
     // axios
@@ -56,11 +51,11 @@ class RightColumn extends React.Component {
     //   })
     //   .then(function () {
     //     console.log(this.state.productArray);
-    //   });    
+    //   });
   }
 
   // makeGetRequest(path) {
-    
+
   //   return new Promise(function (resolve, reject) {
   //     const axios = require("axios");
   //     axios.get(path).then(
@@ -70,11 +65,11 @@ class RightColumn extends React.Component {
   //           for (var i = 0; i < response.data.length; i++) {
   //             productArray.push(response.data[i]);
   //           }
-            
+
   //           // console.log(prokkductArray);
   //           resolve(result);
   //         },
-  //         (error) => { 
+  //         (error) => {
   //             console.log(error);
   //         }
   //     );
@@ -89,33 +84,38 @@ class RightColumn extends React.Component {
   //   }
   // }
 
-  render() { 
-    let cards = []
-    if(this.state.productArray.length > 0){
-      for(let i = 0; i<this.state.productArray.length; i++){
-        cards.push(<ClothesCard key={i} className="card" source={image} productPrice={this.state.productArray[i].Price} productname={this.state.productArray[i].Name} description={this.state.productArray[i].Descr}/>);
+  render() {
+    let cards = [];
+    if (this.state.productArray.length > 0) {
+      for (let i = 0; i < this.state.productArray.length; i++) {
+        cards.push(
+          <ClothesCard
+            key={i}
+            className="card"
+            source={image}
+            productPrice={this.state.productArray[i].Price}
+            productname={this.state.productArray[i].Name}
+            description={this.state.productArray[i].Descr}
+          />
+        );
         // console.log(this.state.productArray);
       }
-      return(
+      return (
         <div>
           <div className="heading">
             <h1 id="men_tops">Products</h1>
           </div>
-          <div className="cardHolder">
-            {cards}
-          </div>
+          <div className="cardHolder">{cards}</div>
         </div>
-      )
-    }
-    else{
+      );
+    } else {
       return (
         <div>
-         <h1>Loading....</h1> 
+          <h1>Loading....</h1>
         </div>
       );
     }
   }
-
 }
 
 export default RightColumn;
