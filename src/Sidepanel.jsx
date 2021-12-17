@@ -28,7 +28,7 @@ class Sidepanel extends React.Component{
         this.myfun = this.myfun.bind(this);
     }
 
-    myfun(){
+    myfun(event){
         this.setState({
             topcheck: document.getElementById("top").checked,
             bottomcheck: document.getElementById("Bottom").checked,
@@ -52,6 +52,9 @@ class Sidepanel extends React.Component{
             White: document.getElementById("White").checked,
             Yellow: document.getElementById("Yellow").checked,
         })
+        // for(const property in this.state){
+        //     console.log(this.state[property]);
+        // }
         console.log(this.state);
     }
 
@@ -111,7 +114,7 @@ class Sidepanel extends React.Component{
                 </Accordion.Body>
             </Accordion.Item>
             </Accordion>
-            <Button onClick={this.myfun} >Filter</Button>
+            <Button onClick={this.myfun}>Filter</Button>
         </div>
         )
     }

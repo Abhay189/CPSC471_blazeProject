@@ -15,7 +15,6 @@ class AdminInventoryProducts extends React.Component {
     this.setState({
       productArray: data,
     });
-    console.log(this.state.productArray);
   };
 
   componentDidMount() {
