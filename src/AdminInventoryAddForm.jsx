@@ -1,33 +1,28 @@
 import {Button,Form } from "react-bootstrap";
 import './CSS/AdminSupplierForm.css';
 import React,{useState}  from "react";
-import axios, * as others from 'axios';
+import axios, { Axios } from "axios";
 
-
-function AdminSupplierAddForm(){
-  const url = "https://localhost:44309/api/supplier";
+function AdminInventoryAddForm(){
+  const url = "https://localhost:44309/api/products";
   const [data, setData] =  useState({
-    SupID:"",
-    SName: "",
-    SEmail: "",
-    SPhone: "",
-    SStreet: "",
-    SCity: "", 
-    SPostal: "",
-    SDescr: ""
+    PID:"",
+    iName: "",
+    iSize: "",
+    iPrice: "", 
+    iColor: "",
+    iDescr: ""
   })
 
   function submit(e){
-    console.log("supplier")
+    console.log("wow")
     e.preventDefault();
     axios.post(url,{ 
-      SupID: '56',
-      Name:data.SName,
-      Email: data.SEmail,
-      PhoneNo: parseFloat(data.SPhone),
-      Street: parseInt(data.SStreet),
-      City: data.SCity,
-      PostalCode: data.SPostal
+      PID: '56',
+      Name:data.iName,
+      Price: parseFloat(data.iPrice),
+      Descr: data.iDescr,
+      Color: data.iColor
     })
 
     .then(res => {
@@ -79,32 +74,27 @@ function AdminSupplierAddForm(){
           <br/><br/>
         <tr>
         <Form.Label className="lab">Name</Form.Label>
-        <input onChange= {(e)=> handle(e)} id= "SName" value = {data.SName}></input>
+        <input onChange= {(e)=> handle(e)} id= "iName" value = {data.iName}></input>
         </tr>
         <br/>
         <tr>
-        <Form.Label className="lab">Email</Form.Label>
-        <input onChange= {(e)=> handle(e)} id= "SEmail" value = {data.SEmail}></input>
+        <Form.Label className="lab">Size</Form.Label>
+        <input onChange= {(e)=> handle(e)} id= "iSize" value = {data.iSize}></input>
         </tr>
         <br/>
         <tr>
-        <Form.Label className="lab">Phone Number</Form.Label>
-        <input onChange= {(e)=> handle(e)} id= "SPhone" value = {data.SPhone}></input>
+        <Form.Label className="lab">Price</Form.Label>
+        <input onChange= {(e)=> handle(e)} id= "iPrice" value = {data.iPrice}></input>
         </tr>
         <br/>
         <tr>
-        <Form.Label className="lab">Street</Form.Label>
-        <input onChange= {(e)=> handle(e)} id= "SStreet" value = {data.SStreet}></input>
+        <Form.Label className="lab">Color</Form.Label>
+        <input onChange= {(e)=> handle(e)} id= "iColor" value = {data.iColor}></input>
         </tr>
         <br/>
         <tr>
-        <Form.Label className="lab">City</Form.Label>
-        <input onChange= {(e)=> handle(e)} id= "SCity" value = {data.SCity}></input>
-        </tr>
-        <br/>
-        <tr>
-        <Form.Label className="lab">Postal Code</Form.Label>
-        <input onChange= {(e)=> handle(e)} id= "SPostal" value = {data.SPostal}></input>
+        <Form.Label className="lab">Description</Form.Label>
+        <input onChange= {(e)=> handle(e)} id= "iDescr" value = {data.iDescr}></input>
         </tr>
         <br/>
         <button>Submit</button>
@@ -113,4 +103,4 @@ function AdminSupplierAddForm(){
     </div>
   )
 }
-export default AdminSupplierAddForm;
+export default AdminInventoryAddForm;
